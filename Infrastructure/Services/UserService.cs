@@ -5,5 +5,6 @@ namespace Antra.CustomerCRM.WebAppMVC.Infrastructure.Services
 {
     public class UserService : IUserService<User>
     {
+
     }
 }
