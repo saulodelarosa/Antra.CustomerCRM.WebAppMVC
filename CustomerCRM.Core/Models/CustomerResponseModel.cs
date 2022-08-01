@@ -4,37 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CustomerCRM.Core.Entities
+namespace CustomerCRM.Core.Models
 {
-    public class Customer
+    public class CustomerResponseModel
     {
+
         public int Id { get; set; }
-        [Column(TypeName ="Varchar(30)")]
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
+        [MaxLength(30, ErrorMessage = "Maximum 30 characters are allowed")]
         public string Name { get; set; }
-        [Column(TypeName = "Varchar(30)")]
-        [Required]
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
-        [Column(TypeName = "Varchar(80)")]
+
         [Required]
         public string Address { get; set; }
-        [Column(TypeName = "Varchar(20)")]
+
         [Required]
         public string City { get; set; }
         public int RegionId { get; set; }
         public int PostalCode { get; set; }
-        [Column(TypeName = "Varchar(20)")]
+
         [Required]
         public string Country { get; set; }
-        [Column(TypeName = "Varchar(15)")]
+
         [Required]
         public string Phone { get; set; }
-        [Column(TypeName = "Varchar(200)")]
+
         public string Photo { get; set; }
 
-        //navigational property
-        public Region Region { get; set; }
-    }   
+        public string RegionName { get; set; }
+    }
 }

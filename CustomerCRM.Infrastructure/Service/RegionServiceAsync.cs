@@ -17,19 +17,19 @@ namespace CustomerCRM.Infrastructure.Service
         {
             regionRepository = _regionRepository;
         }
-        public async Task<int> InsertRegion(RegionModel regionModel)
+        public Task<int> InsertRegion(RegionModel regionModel)
         {
             Region regionEntity = new Region();
-            regionEntity.Name= regionModel.Name;
-          return await  regionRepository.InsertAsync(regionEntity);
+            regionEntity.Name = regionModel.Name;
+            return regionRepository.InsertAsync(regionEntity);
 
         }
 
         public async Task<IEnumerable<RegionModel>> GetAllRegions()
-        { 
+        {
             var result = await regionRepository.GetAllAsync();
 
-           List<RegionModel> regions = new List<RegionModel>();
+            List<RegionModel> regions = new List<RegionModel>();
             if (result != null)
             {
                 foreach (var item in result)
@@ -43,9 +43,32 @@ namespace CustomerCRM.Infrastructure.Service
             return regions;
         }
 
-        public async Task<int> DeleteRegionAsync(int id)
+        public Task<int> DeleteRegionAsync(int id)
         {
-            return await regionRepository.DeleteAsync(id);
+            return regionRepository.DeleteAsync(id);
+        }
+
+        public Task<int> UpdateRegionAsync(RegionModel model)
+        {
+            Region regionEntity = new Region();
+            regionEntity.Name = model.Name;
+            regionEntity.Id = model.Id;
+            return regionRepository.UpdateAsync(regionEntity);
+        }
+
+        public async Task<RegionModel> GetRegionByIdAsync(int id)
+        {
+            Region entity = await regionRepository.GetByIdAsync(id);
+            if (entity != null)
+            {
+                RegionModel regionModel = new RegionModel()
+                {
+                    Id = entity.Id,
+                    Name = entity.Name
+                };
+                return regionModel;
+            }
+            return null;
         }
     }
 }

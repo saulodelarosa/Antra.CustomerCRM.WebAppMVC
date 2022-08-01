@@ -33,17 +33,17 @@ namespace CustomerCRM.Infrastructure.Repository
             return await db.Set<T>().FindAsync(id);
         }
 
-        public async Task<int> InsertAsync(T entity)
+        public Task<int> InsertAsync(T entity)
         {
-           
-             db.Set<T>().Add(entity);
-            return await db.SaveChangesAsync();
+
+            db.Set<T>().Add(entity);
+            return db.SaveChangesAsync();
         }
 
-        public async Task<int> UpdateAsync(T entity)
+        public Task<int> UpdateAsync(T entity)
         {
             db.Entry<T>(entity).State = EntityState.Modified;
-            return await db.SaveChangesAsync();
+            return db.SaveChangesAsync();
         }
     }
 }

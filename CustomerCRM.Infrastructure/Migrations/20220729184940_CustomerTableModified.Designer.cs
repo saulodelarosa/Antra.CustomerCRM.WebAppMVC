@@ -3,6 +3,7 @@ using CustomerCRM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerCRM.Infrastructure.Migrations
 {
     [DbContext(typeof(CustomerCrmDbContext))]
-    partial class CustomerCrmDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220729184940_CustomerTableModified")]
+    partial class CustomerTableModified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,8 +67,6 @@ namespace CustomerCRM.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RegionId");
-
                     b.ToTable("Customer");
                 });
 
@@ -106,22 +106,6 @@ namespace CustomerCRM.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Shipper");
-                });
-
-            modelBuilder.Entity("CustomerCRM.Core.Entities.Customer", b =>
-                {
-                    b.HasOne("CustomerCRM.Core.Entities.Region", "Region")
-                        .WithMany("Customers")
-                        .HasForeignKey("RegionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Region");
-                });
-
-            modelBuilder.Entity("CustomerCRM.Core.Entities.Region", b =>
-                {
-                    b.Navigation("Customers");
                 });
 #pragma warning restore 612, 618
         }

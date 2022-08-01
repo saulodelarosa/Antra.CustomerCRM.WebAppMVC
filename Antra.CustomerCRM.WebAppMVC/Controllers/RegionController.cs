@@ -39,5 +39,22 @@ namespace Antra.CustomerCRM.WebAppMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            RegionModel model = await regionServiceAsync.GetRegionByIdAsync(id);
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(RegionModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await regionServiceAsync.UpdateRegionAsync(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
     }
 }

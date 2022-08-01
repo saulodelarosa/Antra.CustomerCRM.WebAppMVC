@@ -18,11 +18,5 @@ namespace CustomerCRM.Infrastructure.Data
         public DbSet<Region> Region { get; set; }
         public DbSet<Shipper> Shipper { get; set; }
         public DbSet<Customer> Customer { get; set; }
-        public DbSet<Region> Product { get; set; }
-        public DbSet<Shipper> Vendor { get; set; }
-        public DbSet<Customer> Category { get; set; }
-        public DbSet<Customer> Employee { get; set; }
-
-
     }
 }
