@@ -1,20 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Antra.CustomerCRM.WebAppMVC.Models;
+﻿using CustomerCRM.Core.Contracts.Service;
+using CustomerCRM.Core.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Antra.CustomerCRM.WebAppMVC.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IActionResult Index()
+        IRegionServiceAsync regionServiceAsync;
+        IEmployeeServiceAsync employeeServiceAsync;
+        public EmployeeController(IRegionServiceAsync regionServiceAsync, IEmployeeServiceAsync employeeServiceAsync)
         {
-            List<Employee> lstEmployees = new List<Employee> { 
-             new Employee() {Id=1, FirstName="Jane", LastName="Doe", Department="IT", Salary=6000},
-             new Employee() {Id=2, FirstName="William", LastName="Bi", Department="HR", Salary=5000},
-             new Employee() {Id=3, FirstName="Olivia", LastName="Saw", Department="QA", Salary=5500},
-             new Employee() {Id=4, FirstName="James", LastName="Anderson", Department="Sales", Salary=4500},
-             new Employee() {Id=5, FirstName="Brett", LastName="Lee", Department="IT", Salary=6000},
-            };
-            return View(lstEmployees);
+            this.employeeServiceAsync = employeeServiceAsync;
+            this.regionServiceAsync = regionServiceAsync;
+        }
+        public async Task<IActionResult> Index(string cityname = "")
+        {
+            var result = await employeeServiceAsync.GetAllAsync();
+            return View(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Detail(int id)
+        {
+            var result = await employeeServiceAsync.GetEmployeeByIdAsync(id);
+            return View(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+
+            ViewBag.Regions = new SelectList(await regionServiceAsync.GetAllRegions(), "Id", "Name");
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await employeeServiceAsync.InsertEmployeeAsync(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }

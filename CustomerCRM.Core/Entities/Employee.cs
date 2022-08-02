@@ -23,7 +23,7 @@ namespace CustomerCRM.Core.Entities
         [Column(TypeName = "Varchar(5)")]
         public string TitleOfCourtesy { get; set; }
 
-        [Column(TypeName = "datetime2(7")]
+        [Column(TypeName = "datetime2(7)")]
         public DateTime BirthDate { get; set; }
 
         [Column(TypeName = "datetime2(7)")]

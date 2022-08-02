@@ -1,4 +1,5 @@
 ﻿using Antra.CustomerCRM.WebAppMVC.Models;
+using CustomerCRM.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -28,8 +29,8 @@ namespace Antra.CustomerCRM.WebAppMVC.Controllers
             Employee employee = new Employee();
             employee.FirstName = "Daniel";
             employee.LastName = "Craig";
-            employee.Salary = 6700;
-            employee.Department = "IT";
+            employee.Title = "Doctor";
+            employee.PhotoPath = "https://pngimg.com/uploads/man/man_PNG6531.png";
             employee.Id = 7;
 
             return View(employee);

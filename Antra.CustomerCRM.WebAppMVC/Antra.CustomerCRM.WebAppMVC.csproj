@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CustomerCRM.Core\CustomerCRM.Core.csproj" />
     <ProjectReference Include="..\CustomerCRM.Infrastructure\CustomerCRM.Infrastructure.csproj" />
   </ItemGroup>
 
