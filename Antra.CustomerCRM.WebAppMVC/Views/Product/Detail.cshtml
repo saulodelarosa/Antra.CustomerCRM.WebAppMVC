@@ -1,1 +1,50 @@
-﻿
+﻿@model ProductModel
+<div class="row">
+    <div class="col-5">
+        <img src="https://img.lovepik.com/free-png/20211211/lovepik-vendor-selling-fruit-png-image_401493255_wh1200.png" width="250px" height="250px"/>
+    </div>
+    <div class="col-7">
+        <table class="table table-bordered table-striped">
+            <tr> 
+                <td>Name</td>
+                <td>@Model.Name</td>
+            </tr>
+             <tr> 
+                <td>SupplierId</td>
+                <td>@Model.SupplierId</td>
+            </tr>
+            <tr> 
+                <td>CategoryId</td>
+                <td>@Model.CategoryId</td>
+            </tr>
+            <tr> 
+                <td>QuantityPerUnit</td>
+                <td>@Model.QuantityPerUnit</td>
+            </tr>
+            <tr> 
+                <td>UnitPrice</td>
+                <td>@Model.UnitPrice</td>
+            </tr>
+            <tr> 
+                <td>UnitsInStock</td>
+                <td>@Model.UnitsInStock</td>
+            </tr>
+            <tr> 
+                <td>UnitsOnOrder</td>
+                <td>@Model.UnitsOnOrder</td>
+            </tr>
+            <tr> 
+                <td>ReorderLevel</td>
+                <td>@Model.ReorderLevel</td>
+            </tr>
+            <tr> 
+                <td>Discontinued</td>
+                <td>@Model.Discontinued</td>
+            </tr>
+            <tr> 
+                <td>VendorId</td>
+                <td>@Model.VendorId</td>
+           
+        </table>
+    </div>
+</div>

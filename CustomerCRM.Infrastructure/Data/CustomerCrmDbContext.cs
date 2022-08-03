@@ -1,4 +1,5 @@
 ﻿using CustomerCRM.Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CustomerCRM.Infrastructure.Data
 {
-    public class CustomerCrmDbContext:DbContext
+    public class CustomerCrmDbContext:IdentityDbContext
     {
         public CustomerCrmDbContext(DbContextOptions<CustomerCrmDbContext> options):base(options)
         {

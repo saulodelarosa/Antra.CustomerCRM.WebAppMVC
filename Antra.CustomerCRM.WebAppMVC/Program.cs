@@ -1,8 +1,10 @@
 using CustomerCRM.Core.Contracts.Repository;
 using CustomerCRM.Core.Contracts.Service;
+using CustomerCRM.Core.Entities;
 using CustomerCRM.Infrastructure.Data;
 using CustomerCRM.Infrastructure.Repository;
 using CustomerCRM.Infrastructure.Service;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +31,9 @@ builder.Services.AddScoped<IEmployeeServiceAsync, EmployeeServiceAsync>();
 builder.Services.AddScoped<IProductServiceAsync, ProductServiceAsync>();
 builder.Services.AddScoped<IVendorServiceAsync, VendorServiceAsync>();
 
+
 builder.Services.AddSqlServer<CustomerCrmDbContext>(builder.Configuration.GetConnectionString("CustomerCRM"));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<CustomerCrmDbContext>().AddDefaultTokenProviders();
 /*
 builder.Services.AddDbContext<CustomerCrmDbContext>(
     option => {
