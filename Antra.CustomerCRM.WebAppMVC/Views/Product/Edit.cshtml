@@ -37,7 +37,7 @@
         </div>
         <div class="col-4 mb-3">
             <label for="txtUnitsOnOrder">Units On Order</label>
-            <input type="url" id="txtUnitsOnOrder" name="Units On Order" class="form-control" value="@Model.UnitsOnOrder" />
+            <input type="text" id="txtUnitsOnOrder" name="Units On Order" class="form-control" value="@Model.UnitsOnOrder" />
             <span asp-validation-for="UnitsOnOrder" class="text-danger"></span>
         </div>
         
@@ -55,7 +55,7 @@
         </div>
         <div class="col-4 mb-3">
             <label for="txtVendorId">VendorId</label>
-           <textarea class="form-control" id="txtVendorId" name="VendorId" value="@Model.VendorId"></textarea>
+           <input type="text" class="form-control" id="txtVendorId" name="VendorId" value="@Model.VendorId">
             <span asp-validation-for="VendorId" class="text-danger"></span>
         </div>
     </div>
