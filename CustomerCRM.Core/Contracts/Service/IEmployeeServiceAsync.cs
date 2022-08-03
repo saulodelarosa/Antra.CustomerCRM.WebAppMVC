@@ -12,5 +12,8 @@ namespace CustomerCRM.Core.Contracts.Service
         Task<int> InsertEmployeeAsync(EmployeeModel model);
         Task<EmployeeModel> GetEmployeeByIdAsync(int id);
         Task<IEnumerable<EmployeeModel>> GetAllAsync();
+        Task<int> DeleteEmployeeAsync(int id);
+        Task<int> UpdateEmployeeAsync(EmployeeModel model);
+
     }
 }

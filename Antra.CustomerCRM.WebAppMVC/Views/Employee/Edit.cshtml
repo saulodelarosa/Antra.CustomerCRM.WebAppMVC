@@ -1,45 +1,45 @@
 ﻿@model EmployeeModel
-<form asp-action="Create" asp-controller="Employee" method="post">
+<form asp-action="Edit" asp-controller="Employee" method="post">
     <div class="row">
         <div class="col-3 mb-3">
             <label for="txtName">First Name</label>
-            <input type="text" id="txtName" name="FirstName" class="form-control" placeholder="Enter Employee First Name" />
+            <input type="text" id="txtName" name="FirstName" class="form-control" value="@Model.FirstName" />
             <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
 
          <div class="col-3 mb-3">
             <label for="txtName">Last Name</label>
-            <input type="text" id="txtName" name="LastName" class="form-control" placeholder="Enter Employee Last Name" />
+            <input type="text" id="txtName" name="LastName" class="form-control" value="@Model.LastName" />
             <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
 
         <div class="col-3 mb-3">
             <label for="txtTitle">Title</label>
-            <input type="text" id="txtTitle" name="Title" class="form-control" placeholder="Enter Employee Title" />
+            <input type="text" id="txtTitle" name="Title" class="form-control" value="@Model.Title"  />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="col-3 mb-3">
             <label for="txtCity">City</label>
-            <input type="text" id="txtCity" name="City" class="form-control" placeholder="Enter Employee City" />
+            <input type="text" id="txtCity" name="City" class="form-control" value="@Model.City"  />
             <span asp-validation-for="City" class="text-danger"></span>
         </div>
     </div>
     <div class="row">
         <div class="col-4 mb-3">
             <label for="ddlRegion">Select Region</label>
-            <select asp-items="@ViewBag.Regions" class="form-control" id="ddlRegion" name="RegionId">
+            <select asp-items="@ViewBag.Regions" class="form-control" id="ddlRegion" name="RegionId" value="@Model.RegionId">
                 <option>Select Region</option>
             </select>
             <span asp-validation-for="RegionId" class="text-danger"></span>
         </div>
         <div class="col-4 mb-3">
             <label for="txtPCode">Postal Code</label>
-            <input type="text" id="txtPCode" name="PostalCode" class="form-control" placeholder="Enter Postal Code" />
+            <input type="text" id="txtPCode" name="PostalCode" class="form-control" value="@Model.PostalCode"  />
             <span asp-validation-for="PostalCode" class="text-danger"></span>
         </div>
         <div class="col-4 mb-3">
             <label for="txtPhoto">Photo</label>
-            <input type="url" id="txtPhoto" name="PhotoPath" class="form-control" placeholder="Enter Photo Url" />
+            <input type="url" id="txtPhoto" name="PhotoPath" class="form-control" value="@Model.PhotoPath" />
             <span asp-validation-for="PhotoPath" class="text-danger"></span>
         </div>
         
@@ -47,41 +47,41 @@
     <div class="row">
         <div class="col-4 mb-3">
             <label for="txtCountry">Country Name</label>
-            <input type="text" id="txtCountry" name="Country" class="form-control" placeholder="Enter Country Name" />
+            <input type="text" id="txtCountry" name="Country" class="form-control" value="@Model.Country" />
             <span asp-validation-for="Country" class="text-danger"></span>
         </div>
         <div class="col-4 mb-3">
             <label for="txtPhone">Phone</label>
-            <input type="text" id="txtPhone" name="Phone" class="form-control" placeholder="Enter Phone Number" />
+            <input type="text" id="txtPhone" name="Phone" class="form-control" value="@Model.Phone" />
             <span asp-validation-for="Phone" class="text-danger"></span>
         </div>
         <div class="col-4 mb-3">
             <label for="txtAddress">Address</label>
-           <textarea class="form-control" id="txtAddress" name="Address"></textarea>
+           <textarea class="form-control" id="txtAddress" name="Address" value="@Model.Address"></textarea>
             <span asp-validation-for="Address" class="text-danger"></span>
         </div>
     </div>
     <div class="row">
         <div class="col-3 mb-3">
             <label for="txtTitleOfCourtesy">Title Of Courtesy</label>
-            <input type="text" id="txtTitleOfCourtesy" name="TitleOfCourtesy" class="form-control" placeholder="Enter Employee Title Of Courtesy" />
+            <input type="text" id="txtTitleOfCourtesy" name="TitleOfCourtesy" class="form-control" value="@Model.TitleOfCourtesy" />
             <span asp-validation-for="TitleOfCourtesy" class="text-danger"></span>
         </div>
 
          <div class="col-3 mb-3">
             <label for="txtBirthDate">BirthDate</label>
-            <input type="datetime-local" id="txtBirthDate" name="BirthDate" class="form-control" placeholder="Enter Employee Birth Date" />
+            <input type="datetime-local" id="txtBirthDate" name="BirthDate" class="form-control" value="@Model.BirthDate" />
             <span asp-validation-for="BirthDate" class="text-danger"></span>
         </div>
 
         <div class="col-3 mb-3">
             <label for="txtHireDate">Hire Date</label>
-            <input type="datetime-local" id="txtHireDate" name="HireDate" class="form-control" placeholder="Enter Employee Hire Date" />
+            <input type="datetime-local" id="txtHireDate" name="HireDate" class="form-control" value="@Model.HireDate" />
             <span asp-validation-for="HireDate" class="text-danger"></span>
         </div>
         <div class="col-3 mb-3">
             <label for="txtReportsTo">Reports to</label>
-            <input type="text" id="txtReportsTo" name="ReportsTo" class="form-control" placeholder="Enter ID of who Employee reports to" />
+            <input type="text" id="txtReportsTo" name="ReportsTo" class="form-control" value="@Model.ReportsTo" />
             <span asp-validation-for="ReportsTo" class="text-danger"></span>
         </div>
     </div>

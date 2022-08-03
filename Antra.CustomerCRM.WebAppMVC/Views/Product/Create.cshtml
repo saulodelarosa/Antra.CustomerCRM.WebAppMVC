@@ -1,0 +1,63 @@
+﻿@model ProductModel
+<form asp-action="Create" asp-controller="Product" method="post">
+    <div class="row">
+        <div class="col-3 mb-3">
+            <label for="txtName">Name</label>
+            <input type="text" id="txtName" name="Name" class="form-control" placeholder="Enter product name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+         <div class="col-3 mb-3">
+            <label for="txtName">SupplierId</label>
+            <input type="text" id="txtName" name="SupplierId" class="form-control" placeholder="Enter Supplier ID" />
+            <span asp-validation-for="SupplierId" class="text-danger"></span>
+        </div>
+
+        <div class="col-3 mb-3">
+            <label for="txtCategoryId">CategoryId</label>
+            <input type="text" id="txtCategoryId" name="CategoryId" class="form-control" placeholder="Enter Category ID" />
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="col-3 mb-3">
+            <label for="txtQuantityPerUnit">QuantityPerUnit</label>
+            <input type="text" id="txtQuantityPerUnit" name="QuantityPerUnit" class="form-control" placeholder="Enter Quantity Per Unit"  />
+            <span asp-validation-for="QuantityPerUnit" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="txtUnitPrice">Unit Price</label>
+            <input type="text" id="txtUnitPrice" name="UnitPrice" class="form-control" placeholder="Enter Unit Price"  />
+            <span asp-validation-for="UnitPrice" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtUnitsInStock">Units In Stock</label>
+            <input type="text" id="txtUnitsInStock" name="UnitsInStock" class="form-control" placeholder="Enter Units In Stock" />
+            <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtUnitsOnOrder">Units On Order</label>
+            <input type="url" id="txtUnitsOnOrder" name="Units On Order" class="form-control" placeholder="Enter Units On Oder" />
+            <span asp-validation-for="UnitsOnOrder" class="text-danger"></span>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="txtReorderLevel">ReorderLevel</label>
+            <input type="text" id="txtReorderLevel" name="ReorderLevel" class="form-control" placeholder="Enter Reorder Level" />
+            <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtDiscontinued">Discontinued</label>
+            <input type="text" id="txtDiscontinued" name="Discontinued" class="form-control" placeholder="Enter if discontinued" />
+            <span asp-validation-for="Discontinued" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtVendorId">VendorId</label>
+           <input type="text" class="form-control" id="txtVendorId" name="VendorId" placeholder="Enter Vendor ID"/>
+            <span asp-validation-for="VendorId" class="text-danger"></span>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>

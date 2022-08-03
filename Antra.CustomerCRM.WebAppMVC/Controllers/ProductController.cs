@@ -5,24 +5,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Antra.CustomerCRM.WebAppMVC.Controllers
 {
-    public class EmployeeController : Controller
+    public class ProductController : Controller
     {
         IRegionServiceAsync regionServiceAsync;
-        IEmployeeServiceAsync employeeServiceAsync;
-        public EmployeeController(IRegionServiceAsync regionServiceAsync, IEmployeeServiceAsync employeeServiceAsync)
+        IProductServiceAsync productServiceAsync;
+        public ProductController(IRegionServiceAsync regionServiceAsync, IProductServiceAsync productServiceAsync)
         {
-            this.employeeServiceAsync = employeeServiceAsync;
+            this.productServiceAsync = productServiceAsync;
             this.regionServiceAsync = regionServiceAsync;
         }
         public async Task<IActionResult> Index(string cityname = "")
         {
-            var result = await employeeServiceAsync.GetAllAsync();
+            var result = await productServiceAsync.GetAllAsync();
             return View(result);
         }
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-            var result = await employeeServiceAsync.GetEmployeeByIdAsync(id);
+            var result = await productServiceAsync.GetProductByIdAsync(id);
             return View(result);
         }
         [HttpGet]
@@ -33,11 +33,11 @@ namespace Antra.CustomerCRM.WebAppMVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(EmployeeModel model)
+        public async Task<IActionResult> Create(ProductModel model)
         {
             if (ModelState.IsValid)
             {
-                await employeeServiceAsync.InsertEmployeeAsync(model);
+                await productServiceAsync.InsertProductAsync(model);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -45,9 +45,9 @@ namespace Antra.CustomerCRM.WebAppMVC.Controllers
 
 
 
-        public async Task<IActionResult> Delete(int employeeId)
+        public async Task<IActionResult> Delete(int productId)
         {
-            await employeeServiceAsync.DeleteEmployeeAsync(employeeId); 
+            await productServiceAsync.DeleteProductAsync(productId); 
             return RedirectToAction("Index");
         }
 
@@ -55,16 +55,16 @@ namespace Antra.CustomerCRM.WebAppMVC.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             ViewBag.Regions = new SelectList(await regionServiceAsync.GetAllRegions(), "Id", "Name");
-            EmployeeModel model = await employeeServiceAsync.GetEmployeeByIdAsync(id);
+            ProductModel model = await productServiceAsync.GetProductByIdAsync(id);
             return View(model);         
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(EmployeeModel model)
+        public async Task<IActionResult> Edit(ProductModel model)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Regions = new SelectList(await regionServiceAsync.GetAllRegions(), "Id", "Name");
-                await employeeServiceAsync.UpdateEmployeeAsync(model);
+                await productServiceAsync.UpdateProductAsync(model);
                 return RedirectToAction("Index");
             }
             return View(model);

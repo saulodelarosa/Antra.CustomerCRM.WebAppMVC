@@ -16,7 +16,7 @@ namespace CustomerCRM.Core.Entities
 
         public int SupplierId { get; set; }
         public int CategoryId { get; set; }
-        public int QuantityId { get; set; }
+        public int QuantityPerUnit { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }
@@ -30,7 +30,7 @@ namespace CustomerCRM.Core.Entities
         [Column(TypeName = "bit")]
         public Boolean Discontinued { get; set; }
 
-        public int VendorID { get; set; }
+        public int VendorId { get; set; }
 
     }
 }

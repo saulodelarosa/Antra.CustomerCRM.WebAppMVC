@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<EmployeeModel>
 <h1>Employee List</h1>
+       <a class="nav-link" asp-area="" asp-controller="Employee" asp-action="create">Create New Employee</a>
 <table class="table">
     <thead>
         <tr>
@@ -26,6 +27,8 @@
             <td>@c.Country </td>
             <td>
                 <a class="btn btn-warning" asp-action="Detail" asp-controller="Employee" asp-route-id="@c.Id">Details</a>
+                <a asp-action="Edit" class="btn btn-success" asp-controller="Employee" asp-route-id="@c.Id">Edit</a>
+                <a asp-action ="Delete" class="btn btn-danger" asp-controller="Employee" asp-route-regionId="@c.Id" >Delete</a>
             </td>
         </tr>
 
@@ -34,20 +37,23 @@
 
     <br>
 
-    <h2>
-        <b class="nav-item">
+    <br>
+
+
             <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="create">Create New Employee</a>
-        </b>
-   </h2>
 
    <br>
 
-   <div class="card" style="width: 18rem;">
-       @foreach(var x in Model){
+
+
+   @foreach(var x in Model){
+   <div class="card" style="width: 18rem; display: inline-block">
             <img class="card-img-top" src="@x.PhotoPath" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@x.FirstName @x.LastName</h5>
-                <p class="card-text">@x.Title | @x.City</p>
+                <p class="card-text">@x.Title | @x.Country</p>
+                <p class="card-text">@x.City | @x.Phone</p>
             </div>
-       }
    </div>
+
+            }
