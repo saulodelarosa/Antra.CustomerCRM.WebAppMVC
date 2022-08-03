@@ -17,7 +17,7 @@ namespace CustomerCRM.Core.Models
 
         public string Mobile { get; set; }
 
-        public string Emailid { get; set; }
+        public string EmailId { get; set; }
         public Boolean IsActive { get; set; }
     }
 }

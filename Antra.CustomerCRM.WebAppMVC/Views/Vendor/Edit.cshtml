@@ -1,0 +1,39 @@
+﻿@model VendorModel
+<form asp-action="Edit" asp-controller="Vendor" method="post">
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="txtName">Name</label>
+            <input type="text" id="txtName" name="Name" class="form-control" value="@Model.Name"  />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtCity">City</label>
+            <input type="text" id="txtCity" name="City" class="form-control" value="@Model.City"  />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtPhoto">Country</label>
+            <input type="text" id="txtPhoto" name="Country" class="form-control" value="@Model.Country" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="txtCountry">Mobile</label>
+            <input type="text" id="txtCountry" name="Mobile" class="form-control" value="@Model.Mobile" />
+            <span asp-validation-for="Mobile" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtEmailId">EmailId</label>
+            <input type="text" id="txtEmailId" name="EmailId" class="form-control" value="@Model.EmailId" />
+            <span asp-validation-for="EmailId" class="text-danger"></span>
+        </div>
+        <div class="col-4 mb-3">
+            <label for="txtIsActive">IsActive</label>
+           <textarea class="form-control" id="txtIsActive" name="IsActive" value="@Model.IsActive"></textarea>
+            <span asp-validation-for="IsActive" class="text-danger"></span>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>

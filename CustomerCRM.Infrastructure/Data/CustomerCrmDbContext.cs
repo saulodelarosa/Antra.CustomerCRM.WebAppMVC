@@ -21,5 +21,9 @@ namespace CustomerCRM.Infrastructure.Data
         public DbSet<Employee> Employee { get; set; }
 
         public DbSet<Product> Product { get; set; }
+
+        public DbSet<Vendor> Vendor { get; set; }
+
+
     }
 }

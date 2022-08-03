@@ -37,18 +37,17 @@
 
     <br>
 
-    <br>
 
 
-            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="create">Create New Employee</a>
+            <a class="nav-link" asp-area="" asp-controller="Employee" asp-action="create">Create New Employee</a>
 
    <br>
 
 
 
    @foreach(var x in Model){
-   <div class="card" style="width: 18rem; display: inline-block">
-            <img class="card-img-top" src="@x.PhotoPath" alt="Card image cap">
+   <div class="card" style="width: 18rem; display: inline-block;">
+            <img class="card-img-top" style="object-fit:cover; height: 25rem" src="@x.PhotoPath" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@x.FirstName @x.LastName</h5>
                 <p class="card-text">@x.Title | @x.Country</p>

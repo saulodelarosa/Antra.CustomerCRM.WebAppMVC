@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VendorModel>
+<h1>Vendor List</h1>
+       <a class="nav-link" asp-area="" asp-controller="Vendor" asp-action="create">Create New Vendor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Mobile</th>
+            <th>EmailId</th>
+            <th>IsActive</th>
+            <th>Options</th>
+        </tr>
+
+    </thead>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.City</td>
+            <td>@c.Country</td>
+            <td>@c.Mobile</td>
+            <td>@c.EmailId</td>
+            <td>@c.IsActive</td>
+            <td>
+                <a class="btn btn-warning" asp-action="Detail" asp-controller="Vendor" asp-route-id="@c.Id">Details</a>
+                <a asp-action="Edit" class="btn btn-success" asp-controller="Vendor" asp-route-id="@c.Id">Edit</a>
+                <a asp-action ="Delete" class="btn btn-danger" asp-controller="Vendor" asp-route-regionId="@c.Id" >Delete</a>
+            </td>
+        </tr>
+
+    }
+    </table>
+
+    <br>
+
+    <br>
+
+
+            <a class="nav-link text-dark" asp-area="" asp-controller="Vendor" asp-action="create">Create New Vendor</a>
+
+   <br>
+
+

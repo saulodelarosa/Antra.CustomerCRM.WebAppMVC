@@ -24,7 +24,7 @@ namespace CustomerCRM.Core.Entities
         public string Mobile { get; set; }
 
         [Column(TypeName = "varchar(100)")]
-        public string Emailid { get; set; }
+        public string EmailId { get; set; }
 
         [Column(TypeName = "bit")]
         public Boolean IsActive { get; set; }

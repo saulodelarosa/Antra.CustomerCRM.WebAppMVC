@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-4 mb-3">
             <label for="ddlRegion">Select Region</label>
-            <select asp-items="@ViewBag.Regions" class="form-control" id="ddlRegion" name="RegionId" value="@Model.RegionId">
+            <select asp-items="@ViewBag.Regions" class="form-control" id="ddlRegion" name="RegionId">
                 <option>Select Region</option>
             </select>
             <span asp-validation-for="RegionId" class="text-danger"></span>
@@ -57,7 +57,7 @@
         </div>
         <div class="col-4 mb-3">
             <label for="txtAddress">Address</label>
-           <textarea class="form-control" id="txtAddress" name="Address" value="@Model.Address"></textarea>
+           <input class="form-control" id="txtAddress" name="Address" value="@Model.Address"/>
             <span asp-validation-for="Address" class="text-danger"></span>
         </div>
     </div>
