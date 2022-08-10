@@ -11,5 +11,7 @@ namespace CustomerCRM.Core.Contracts.Service
     public interface IAccountServiceAsync
     {
         Task<IdentityResult> SignUpAsync(SignUpModel user);
+
+        Task<SignInResult> LogInAsync(SignInModel model);
     }
 }

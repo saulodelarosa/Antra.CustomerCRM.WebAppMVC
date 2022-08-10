@@ -25,6 +25,8 @@ namespace CustomerCRM.Infrastructure.Data
 
         public DbSet<Vendor> Vendor { get; set; }
 
+        public DbSet<ApplicationUser> ApplicationUser{ get; set; }
+
 
     }
 }

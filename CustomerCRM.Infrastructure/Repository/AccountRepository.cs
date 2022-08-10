@@ -13,11 +13,30 @@ namespace CustomerCRM.Infrastructure.Repository
     public class AccountRepository : IAccountRepository
     {
         private readonly UserManager<ApplicationUser> userManager;
- //       public AccountRepository(User
+        private readonly SignInManager<ApplicationUser> signInManager;
+
+        public AccountRepository(UserManager<ApplicationUser> m, SignInManager<ApplicationUser> s)
+        {
+            userManager = m;
+            signInManager = s;
+        }
 
         public Task<IdentityResult> SignUpAsync(SignUpModel user)
         {
-            throw new NotImplementedException();
+            ApplicationUser AppUser = new ApplicationUser();
+            AppUser.FirstName = user.FirstName;
+            AppUser.LastName = user.LastName;
+            AppUser.Email = user.Email;
+            AppUser.UserName = user.Email;
+
+            return userManager.CreateAsync(AppUser, user.Password);
+
+        }
+
+        public Task<SignInResult> LogInAsync(SignInModel model)
+        {
+            var result = signInManager.PasswordSignInAsync(model.Email, model.Password, model.Remember, false);
+            return result;
         }
     }
 }
