@@ -90,5 +90,22 @@ namespace CustomerCRM.Infrastructure.Service
             };
             return customerRepositoryAsync.InsertAsync(customer);
         }
+
+        public Task<int> DeleteCustomerAsync(int id)
+        {
+            return customerRepositoryAsync.DeleteAsync(id);
+        }
+
+        public Task<int> UpdateCustomerAsync(CustomerModel model)
+        {
+            Customer customerEntity = new Customer();
+            customerEntity.Id = model.Id;
+            customerEntity.Name = model.Name;
+            customerEntity.Phone = model.Phone;
+            return customerRepositoryAsync.UpdateAsync(customerEntity);
+        }
+
+
+
     }
 }

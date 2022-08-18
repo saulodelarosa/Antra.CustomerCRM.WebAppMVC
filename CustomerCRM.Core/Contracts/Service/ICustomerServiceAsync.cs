@@ -12,5 +12,7 @@ namespace CustomerCRM.Core.Contracts.Service
         Task<int> InsertCustomerAsync(CustomerModel model);
         Task<CustomerResponseModel> GetCustomerByIdAsync(int id);
         Task<IEnumerable<CustomerResponseModel>> GetAllAsync();
+        Task<int> DeleteCustomerAsync(int id);
+        Task<int> UpdateCustomerAsync(CustomerModel model);
     }
 }
