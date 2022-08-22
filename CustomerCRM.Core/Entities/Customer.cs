@@ -32,7 +32,6 @@ namespace CustomerCRM.Core.Entities
         [Required]
         public string Phone { get; set; }
         [Column(TypeName = "Varchar(200)")]
-        public string Photo { get; set; }
 
         //navigational property
         public Region Region { get; set; }

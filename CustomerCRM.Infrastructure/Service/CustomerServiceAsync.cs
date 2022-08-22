@@ -32,7 +32,6 @@ namespace CustomerCRM.Infrastructure.Service
                     model.Id = c.Id;
                     model.Name = c.Name;
                     model.Phone = c.Phone;
-                    model.Photo = c.Photo;
                     model.Address = c.Address;
                     model.City = c.City;
                     model.Title = c.Title;
@@ -57,7 +56,6 @@ namespace CustomerCRM.Infrastructure.Service
                 model.Id = c.Id;
                 model.Name = c.Name;
                 model.Phone = c.Phone;
-                model.Photo = c.Photo;
                 model.Address = c.Address;
                 model.City = c.City;
                 model.Title = c.Title;
@@ -83,7 +81,6 @@ namespace CustomerCRM.Infrastructure.Service
                 City = model.City,
                 Country = model.Country,
                 Phone = model.Phone,
-                Photo = model.Photo,
                 PostalCode = model.PostalCode,
                 RegionId = model.RegionId
 
@@ -101,7 +98,13 @@ namespace CustomerCRM.Infrastructure.Service
             Customer customerEntity = new Customer();
             customerEntity.Id = model.Id;
             customerEntity.Name = model.Name;
+            customerEntity.Title = model.Title;
+            customerEntity.Address = model.Address;
+            customerEntity.City = model.City;
+            customerEntity.Country = model.Country;
             customerEntity.Phone = model.Phone;
+            customerEntity.PostalCode = model.PostalCode;
+            customerEntity.RegionId = model.RegionId;
             return customerRepositoryAsync.UpdateAsync(customerEntity);
         }
 

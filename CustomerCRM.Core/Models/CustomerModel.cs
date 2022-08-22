@@ -30,7 +30,6 @@ namespace CustomerCRM.Core.Models
         [Required]
         public string Phone { get; set; }
         
-        public string Photo { get; set; }
 
         
         //public RegionModel RegionModel { get; set; } = new RegionModel();

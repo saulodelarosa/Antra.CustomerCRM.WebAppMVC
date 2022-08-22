@@ -24,6 +24,12 @@ builder.Services.AddScoped<IRegionRepositoryAsync, RegionRepositoryAsync>();
 builder.Services.AddScoped<ICustomerRepositoryAsync, CustomerRepositoryAsync>();
 builder.Services.AddScoped<IEmployeeRepositoryAsync, EmployeeRepositoryAsync>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IProductRepositoryAsync, ProductRepositoryAsync>();
+builder.Services.AddScoped<IShipperRepositoryAsync, ShipperRepositoryAsync>();
+builder.Services.AddScoped<IVendorRepositoryAsync, VendorRepositoryAsync>();
+
+
+
 
 
 
@@ -32,6 +38,13 @@ builder.Services.AddScoped<IRegionServiceAsync, RegionServiceAsync>();
 builder.Services.AddScoped<ICustomerServiceAsync, CustomerServiceAsync>();
 builder.Services.AddScoped<IEmployeeServiceAsync, EmployeeServiceAsync>();
 builder.Services.AddScoped<IAccountServiceAsync, AccountServiceAsync>();
+builder.Services.AddScoped<IProductServiceAsync, ProductServiceAsync>();
+builder.Services.AddScoped<IShipperServiceAsync, ShipperServiceAsync>();
+builder.Services.AddScoped<IVendorServiceAsync, VendorServiceAsync>();
+
+
+
+
 
 builder.Services.AddSqlServer<CustomerCrmDbContext>(builder.Configuration.GetConnectionString("CustomerCRM"));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<CustomerCrmDbContext>().AddDefaultTokenProviders();
